@@ -5,6 +5,8 @@ find_package(catkin REQUIRED COMPONENTS message_generation std_msgs sensor_msgs 
 
 add_message_files(
   FILES
+  EgoArms.msg
+  DebugLQR.msg
   UpperBodyState.msg
   LowerBodyState.msg
 )
@@ -13,6 +15,9 @@ add_service_files(FILES
   NavService.srv
   EnableAutoModeService.srv
   WhereRUService.srv
+  WaitPilotService.srv
+  HappyPoseService.srv
+  PickService.srv
 )
 
 # add_action_files(FILES ErrorRecovery.action)
