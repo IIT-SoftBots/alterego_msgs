@@ -15,6 +15,8 @@ add_service_files(FILES
   NavService.srv
   EnableAutoModeService.srv
   WhereRUService.srv
+  LaunchGStreamer.srv
+  CloseGStreamer.srv
   WaitPilotService.srv
   HappyPoseService.srv
   PickService.srv
