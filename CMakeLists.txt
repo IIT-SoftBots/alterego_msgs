@@ -1,29 +1,38 @@
-cmake_minimum_required(VERSION 3.4)
+cmake_minimum_required(VERSION 3.8)
 project(alterego_msgs)
 
-find_package(catkin REQUIRED COMPONENTS message_generation std_msgs sensor_msgs actionlib_msgs)
+# Trova le dipendenze
+find_package(ament_cmake REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(rclpy REQUIRED)
 
-add_message_files(
-  FILES
-  EgoArms.msg
-  DebugLQR.msg
-  UpperBodyState.msg
-  LowerBodyState.msg
+# Definizione dei file di messaggi e servizi
+set(msg_files
+  "msg/EgoArms.msg"
+  "msg/DebugLQR.msg"
+  "msg/UpperBodyState.msg"
+  "msg/LowerBodyState.msg"
 )
 
-add_service_files(FILES
-  NavService.srv
-  EnableAutoModeService.srv
-  WhereRUService.srv
-  LaunchGStreamer.srv
-  CloseGStreamer.srv
-  WaitPilotService.srv
-  HappyPoseService.srv
-  PickService.srv
+set(srv_files
+  "srv/NavService.srv"
+  "srv/EnableAutoModeService.srv"
+  "srv/WhereRUService.srv"
+  "srv/LaunchGStreamer.srv"
+  "srv/CloseGStreamer.srv"
+  "srv/WaitPilotService.srv"
+  "srv/HappyPoseService.srv"
+  "srv/PickService.srv"
 )
 
-# add_action_files(FILES ErrorRecovery.action)
+# Generazione delle interfacce
+rosidl_generate_interfaces(${PROJECT_NAME}
+  ${msg_files}
+  ${srv_files}
+  DEPENDENCIES std_msgs sensor_msgs
+)
 
-generate_messages(DEPENDENCIES std_msgs sensor_msgs actionlib_msgs)
-
-catkin_package(CATKIN_DEPENDS message_runtime std_msgs sensor_msgs actionlib_msgs)
+# Configura il pacchetto
+ament_package()
