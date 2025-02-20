@@ -7,6 +7,7 @@ add_message_files(
   FILES
   EgoArms.msg
   DebugLQR.msg
+  MarkerInfo.msg
   UpperBodyState.msg
   LowerBodyState.msg
 )
