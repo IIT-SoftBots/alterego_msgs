@@ -7,9 +7,9 @@ add_message_files(
   FILES
   EgoArms.msg
   DebugLQR.msg
-  MarkerInfo.msg
   UpperBodyState.msg
   LowerBodyState.msg
+  BatteryStatus.msg
 )
 
 add_service_files(FILES
