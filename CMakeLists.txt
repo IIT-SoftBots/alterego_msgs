@@ -9,7 +9,6 @@ add_message_files(
   DebugLQR.msg
   UpperBodyState.msg
   LowerBodyState.msg
-  BatteryStatus.msg
 )
 
 add_service_files(FILES
