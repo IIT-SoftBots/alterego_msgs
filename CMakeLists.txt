@@ -9,11 +9,14 @@ find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED) # Needed by MarkerInfo.msg
 
 set(msg_files
+  "msg/ArmCommand.msg"
+  "msg/HandCommand.msg"
+  "msg/HeadCommand.msg"
   "msg/EgoArms.msg"
-  "msg/DebugLQR.msg"
+  "msg/VsaState.msg"
   "msg/UpperBodyState.msg"
   "msg/LowerBodyState.msg"
-  "msg/MarkerInfo.msg"
+  "msg/DebugLQR.msg"
 )
 
 set(srv_files
@@ -28,7 +31,7 @@ set(srv_files
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
   ${srv_files}
-  DEPENDENCIES std_msgs sensor_msgs geometry_msgs
+  DEPENDENCIES std_msgs sensor_msgs
 )
 
 ament_export_dependencies(rosidl_default_runtime)
